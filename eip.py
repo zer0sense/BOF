@@ -16,5 +16,5 @@ try:
         s.close()
 
 except:
-        print "Error Connecting to Server"
+        print ("Error Connecting to Server")
         sys.exit()
